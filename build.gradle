@@ -1,0 +1,69 @@
+plugins {
+  id 'groovy'
+  id 'idea'
+}
+
+group 'org.v1v.jenkinsci.shared.hacks'
+version '0.1-SNAPSHOT'
+
+idea {
+  module {
+    downloadJavadoc = true
+    downloadSources = true
+  }
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+  maven { url 'https://repo.jenkins-ci.org/releases/' }
+  maven { url 'https://repo.jenkins-ci.org/public/' }
+}
+
+dependencies {
+  implementation('org.codehaus.groovy:groovy-all:2.4.8')
+  implementation('com.cloudbees:groovy-cps:1.12')
+  implementation('org.jenkins-ci.main:jenkins-core:2.179')
+  compile(group: 'org.jenkins-ci.plugins.workflow', name: 'workflow-step-api', version: '2.13') {
+    artifact {
+      name = 'workflow-step-api'
+      type = 'jar'
+    }
+  }
+  compile(group: 'org.jenkins-ci.plugins.workflow', name: 'workflow-support', version: '3.6') {
+    artifact {
+      name = 'workflow-support'
+      type = 'jar'
+    }
+  }
+  testImplementation('com.lesfurets:jenkins-pipeline-unit:1.8')
+  testImplementation('junit:junit:4.11')
+  testImplementation('org.jenkins-ci.main:jenkins-core:2.179')
+  testImplementation('org.jenkins-ci.plugins:junit:1.43') {
+    artifact {
+      name = 'junit'
+      type = 'jar'
+    }
+  }
+  testImplementation('org.mockito:mockito-core:3.6.0')
+  testImplementation 'org.mockito:mockito-inline:2.13.0'
+
+}
+
+sourceSets {
+  main {
+    groovy {
+      srcDirs = ['vars', 'src/main/groovy']
+    }
+    resources {
+      srcDirs = ['resources']
+    }
+  }
+  test {
+    groovy {
+      srcDirs = ['src/test/groovy', 'src/main/groovy']
+    }
+  }
+}
