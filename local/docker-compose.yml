@@ -3,7 +3,7 @@ version: "3.7"
 services:
   jenkins:
     build: .
-    container_name: jenkins-pipeline-library
+    container_name: jenkins-pipeline-library-hacks
     environment:
       CASC_JENKINS_CONFIG: /var/jenkins_home/casc_configs
       JAVA_OPTS: >-

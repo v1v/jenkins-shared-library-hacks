@@ -14,8 +14,8 @@ stop:  ## Stop your local jenkins instance
 
 .PHONY: start-local-worker
 start-local-worker:  ## Start the local worker
-	[ ! -e agent.jar ] && wget --quiet -O agent.jar http://localhost:28080/jnlpJars/agent.jar || true
-	{ nohup java -jar agent.jar -jnlpUrl http://localhost:28080/computer/local/slave-agent.jnlp > local.log 2>&1 & echo $$! > local.pid; }
+	[ ! -e agent.jar ] && wget --quiet -O agent.jar http://localhost:8080/jnlpJars/agent.jar || true
+	{ nohup java -jar agent.jar -jnlpUrl http://localhost:8080/computer/local/slave-agent.jnlp > local.log 2>&1 & echo $$! > local.pid; }
 
 .PHONY: stop-local-worker
 stop-local-worker:  ## Stop the local worker
