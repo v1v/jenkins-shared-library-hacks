@@ -27,5 +27,5 @@ def call(Map args = [:]) {
                   ${args.script}"""
     args.script = command
   }
-  return bat(args)
+  return steps.bat(args)
 }
