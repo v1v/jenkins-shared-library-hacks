@@ -48,6 +48,8 @@ This is an example of a shared library for the Jenkins pipelines based on:
 |   |   +- plugins.txt
 |   +- workers
 |       +- linux
+|       |   +- Vagrantfile
+|       +- windows
 |           +- Vagrantfile
 |   +- docker-compose.yml
 |   +- Dockerfile
@@ -92,6 +94,11 @@ NOTE: Java is required.
 ```bash
 make -C local start-linux-worker
 ```
+#### Enable the widnows vagrant worker
+
+```bash
+make -C local start-windows-worker
+```
 
 #### Customise what plugins are installed
 
@@ -99,12 +106,6 @@ You can configure this jenkins instance as you wish, if so please change:
 
 * local/configs/jenkins.yaml using the [JCasC](https://jenkins.io/projects/jcasc/)
 * local/configs/plugins.txt
-
-
-## What's next?
-
-- Be able to programmatically run functional tests.
-
 
 ## Further details
 

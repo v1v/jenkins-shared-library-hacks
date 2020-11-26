@@ -29,6 +29,14 @@ start-linux-worker:  ## Start the local linux worker
 stop-linux-worker:  ## Stop the local linux worker
 	VAGRANT_CWD=workers/linux/ vagrant halt
 
+.PHONY: start-windows-worker
+start-windows-worker:  ## Start the local linux worker
+	VAGRANT_CWD=workers/windows/ vagrant up --provision
+
+.PHONY: stop-windows-worker
+stop-windows-worker:  ## Stop the local linux worker
+	VAGRANT_CWD=workers/windows/ vagrant halt
+
 .PHONY: help
 help:  ## Show this help message
 	@awk 'BEGIN {FS = ":.*##"; printf "Usage: make \033[36m<target>\033[0m\n\nTargets:\n"} /^[a-zA-Z_-]+:.*?##/ { printf "  \033[36m%-10s\033[0m %s\n", $$1, $$2 }' $(MAKEFILE_LIST)
