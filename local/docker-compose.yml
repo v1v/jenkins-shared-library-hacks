@@ -11,7 +11,7 @@ services:
         -Dhudson.model.UsageStatistics.disabled=true
     volumes:
       - type: volume
-        source: jenkins_home_pipeline_library
+        source: jenkins_home_pipeline_library_hacks
         target: /var/jenkins_home
       - type: bind
         source: ./configs/jenkins.yaml
@@ -22,14 +22,14 @@ services:
         target: /var/pipeline-library
         read_only: true
     ports:
-      - "28080:8080"
+      - "8080:8080"
       - "50000:50000"
     networks:
-      pipeline-library:
+      pipeline-library-hacks:
 
 volumes:
-  jenkins_home_pipeline_library:
+  jenkins_home_pipeline_library_hacks:
 
 networks:
-  pipeline-library:
+  pipeline-library-hacks:
     driver: bridge
