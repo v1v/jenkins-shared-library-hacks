@@ -33,8 +33,7 @@ def call(Map args = [:]){
   def propagate = args.get('propagate', true)
   def quietPeriod = args.get('quietPeriod', 1)
 
-  def buildInfo
-  def url
+  def buildInfo, url
   try {
     buildInfo = steps.build(job: job, parameters: parameters, wait: wait, propagate: false, quietPeriod: quietPeriod)
     url = getRedirectLink(buildInfo, job)
@@ -82,15 +81,10 @@ def getRedirectLink(buildInfo, jobName) {
   }
 }
 
-def throwBuildException(buildInfo) {
-  echo("${buildInfo.getProjectName()}#${buildInfo.getNumber()} with issue '${buildInfo.getDescription()?.trim() ?: ''}'")
-  throw new Exception(String.valueOf(buildInfo.getNumber()), Result.FAILURE)
-}
-
 def propagateFailure(buildInfo) {
   if (buildInfo) {
     if (buildInfo.resultIsWorseOrEqualTo('FAILURE')) {
-      throwBuildException(buildInfo)
+      error("downstream job failed")
     }
   } else {
     echo('buildInfo is not an object.')
