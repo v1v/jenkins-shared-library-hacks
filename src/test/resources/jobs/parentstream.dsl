@@ -1,16 +1,10 @@
-NAME = 'it/parentstream'
+NAME = 'parentstream'
 DSL = '''pipeline {
   agent any
   stages {
     stage('trigger downstream') {
       steps {
-        script {
-          try {
-            build job: 'downstream'
-          } catch(e) {
-            println e.getCauses()[0]?.getShortDescription()
-          }
-        }
+        build job: 'downstream'
       }
     }
   }

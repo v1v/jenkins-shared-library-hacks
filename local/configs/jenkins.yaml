@@ -49,7 +49,6 @@ unclassified:
                   - wildcard: "*gradle"
                   - wildcard: "*.md"
 jobs:
-  - file: "/var/pipeline-library/src/test/resources/folders/it.dsl"
   - file: "/var/pipeline-library/src/test/resources/jobs/bat.dsl"
   - file: "/var/pipeline-library/src/test/resources/jobs/downstream.dsl"
   - file: "/var/pipeline-library/src/test/resources/jobs/git.dsl"

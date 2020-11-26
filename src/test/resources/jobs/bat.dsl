@@ -1,4 +1,4 @@
-NAME = 'it/bat'
+NAME = 'bat'
 DSL = '''pipeline {
   agent none
   stages {

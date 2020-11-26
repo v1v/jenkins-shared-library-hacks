@@ -1,4 +1,4 @@
-NAME = 'it/git'
+NAME = 'git'
 DSL = '''pipeline {
   agent any
   stages {

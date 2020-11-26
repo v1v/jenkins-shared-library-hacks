@@ -1,4 +1,4 @@
-NAME = 'it/downstream'
+NAME = 'downstream'
 DSL = '''pipeline {
   agent any
   stages {
