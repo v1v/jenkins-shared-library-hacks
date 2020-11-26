@@ -30,11 +30,11 @@ stop-linux-worker:  ## Stop the local linux worker
 	VAGRANT_CWD=workers/linux/ vagrant halt
 
 .PHONY: start-windows-worker
-start-windows-worker:  ## Start the local linux worker
+start-windows-worker:  ## Start the local windows worker
 	VAGRANT_CWD=workers/windows/ vagrant up --provision
 
 .PHONY: stop-windows-worker
-stop-windows-worker:  ## Stop the local linux worker
+stop-windows-worker:  ## Stop the local windows worker
 	VAGRANT_CWD=workers/windows/ vagrant halt
 
 .PHONY: help
