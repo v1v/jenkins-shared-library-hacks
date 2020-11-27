@@ -5,10 +5,10 @@ DSL = '''pipeline {
     stage('linux') {
       steps {
         script {
-          def ret = sh(script: 'echo hi', returnStatus: true)
-          echo "Returned: ${ret}"
-          if (ret > 0) {
-            echo('Failed since label was not there')
+          try {
+            sh(script: 'echo hi', returnStatus: true)
+          } catch(err) {
+            echo(err.toString())
           }
           ret = sh(script: 'echo hi', returnStatus: true, label: 'yeah')
           if (ret == 0) {
