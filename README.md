@@ -75,7 +75,7 @@ make -C local build
 2. Start the local Jenkins master service by running:
 
 ```bash
-make -C local make start
+make -C local start
 ```
 
 3. Browse to <http://localhost:8080> in your web browser.
