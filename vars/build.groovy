@@ -15,7 +15,6 @@
 // specific language governing permissions and limitations
 // under the License.
 
-import org.jenkinsci.plugins.workflow.steps.FlowInterruptedException
 import org.jenkinsci.plugins.workflow.support.steps.build.RunWrapper
 import hudson.model.Result
 

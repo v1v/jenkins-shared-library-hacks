@@ -53,3 +53,4 @@ jobs:
   - file: "/var/pipeline-library/src/test/resources/jobs/downstream.dsl"
   - file: "/var/pipeline-library/src/test/resources/jobs/git.dsl"
   - file: "/var/pipeline-library/src/test/resources/jobs/parentstream.dsl"
+  - file: "/var/pipeline-library/src/test/resources/jobs/sh.dsl"
